@@ -25,11 +25,15 @@ Route::view("/", "welcome");
 Route::get('/about/{name}/{id}', function($name, $id){
    return view("about", ['name' => $name, 'id'=>$id]);
 });
+// Route::get('/users', function(){
+//    return view("users");
+// });
 
 //Route the controller
 // Route::get("user", [UserController::class, 'show']);
 //passing parameter in url
-Route::get("user/{id}", [UserController::class, 'show']);
+// Route::get("user/{id}", [UserController::class, 'show']);
+Route::get("users", [UserController::class, 'loadUserView']);
 
 //Laravel 7 way:
 // Route::get("user", 'UserController@show');
