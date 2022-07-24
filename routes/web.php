@@ -22,9 +22,9 @@ Route::view("/", "welcome");
 // Route::view("/about", "about");
 
 //Passing parameters in URL
-Route::get('/about/{name}/{id}', function($name, $id){
-   return view("about", ['name' => $name, 'id'=>$id]);
-});
+// Route::get('/about/{name}/{id}', function($name, $id){
+//    return view("about", ['name' => $name, 'id'=>$id]);
+// });
 // Route::get('/users', function(){
 //    return view("users");
 // });
@@ -33,7 +33,24 @@ Route::get('/about/{name}/{id}', function($name, $id){
 // Route::get("user", [UserController::class, 'show']);
 //passing parameter in url
 // Route::get("user/{id}", [UserController::class, 'show']);
-Route::get("users", [UserController::class, 'loadUserView']);
+// Route::get("users/{age}", [UserController::class, 'loadUserView']);
 
 //Laravel 7 way:
 // Route::get("user", 'UserController@show');
+
+//Middleware
+
+// Route::view('noaccess','noaccess');
+
+//group middleware
+// Route::group(['middleware'=>['protectedPage']], function(){
+//    Route::view('users', 'users');
+//    Route::view("/", "welcome");
+// });
+
+//group middleware
+   // Route::view('users', 'users')->middleware('protectedPage');
+   // Route::view("/", "welcome");
+
+//Model and Database
+   Route::get('users', [UserController::class, 'getData']);
